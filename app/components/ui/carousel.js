@@ -159,7 +159,8 @@ export const Card = ({ card, index, layout = false }) => {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
+  }, [open, handleClose]); // Add handleClose to the dependency array
+
 
   useOutsideClick(containerRef, () => handleClose());
 

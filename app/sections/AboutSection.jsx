@@ -22,14 +22,14 @@ export default function About() {
             Take your time and explore me!
           </h2>
           <p className="text-white text-2xl mb-8">
-            Hello! I'm Navneeth K S, a passionate Computer Science and
+            Hello! I&apos;m Navneeth K S, a passionate Computer Science and
             Engineering student with a love for technology and innovation. I
             enjoy solving real-world problems and experimenting with new
-            technologies. On this page, you'll get to know more about me, my
+            technologies. On this page, you&apos;ll get to know more about me, my
             skills, and my projects.
           </p>
           <p className="text-white text-xl 0 mb-8">
-            Please do take your time and read the cards slowly to know more about me ! 
+            Please do take your time and read the cards slowly to know more about me!
           </p>
         </section>
 

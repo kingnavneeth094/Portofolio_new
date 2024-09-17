@@ -19,8 +19,7 @@ export function ThreeDCardDemo() {
           translateZ="60"
           className="text-white text-sm max-w-sm mt-2"
         >
-          I'm a Full stack Developer based in Bengaluru, India 🏠
-          (Hover over me to make my fly 🛸)
+          {"I'm a Full stack Developer based in Bengaluru, India 🏠 (Hover over me to make my fly 🛸)"}
         </CardItem>
         <CardItem
           translateZ="100"

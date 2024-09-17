@@ -75,14 +75,14 @@ export const StarsBackground = ({
   ]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvas = canvasRef.current;  // Store the current value of the ref
     if (!canvas) return;
-
+  
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
+  
     let animationFrameId;
-
+  
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach((star) => {
@@ -90,23 +90,24 @@ export const StarsBackground = ({
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
         ctx.fill();
-
+  
         if (star.twinkleSpeed !== null) {
           star.opacity =
             0.5 +
             Math.abs(Math.sin((Date.now() * 0.001) / star.twinkleSpeed) * 0.5);
         }
       });
-
+  
       animationFrameId = requestAnimationFrame(render);
     };
-
+  
     render();
-
+  
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, [stars]);
+  
 
   return (
     (<canvas
