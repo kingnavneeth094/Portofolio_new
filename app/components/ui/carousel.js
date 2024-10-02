@@ -5,6 +5,7 @@ import React, {
   useState,
   createContext,
   useContext,
+  useCallback,
 } from "react";
 import {
   IconArrowNarrowLeft,
@@ -144,6 +145,12 @@ export const Card = ({ card, index, layout = false }) => {
   const containerRef = useRef(null);
   const { onCardClose, currentIndex } = useContext(CarouselContext);
 
+  // Wrap handleClose with useCallback
+  const handleClose = useCallback(() => {
+    setOpen(false);
+    onCardClose(index);
+  }, [onCardClose, index]);
+
   useEffect(() => {
     function onKeyDown(event) {
       if (event.key === "Escape") {
@@ -159,8 +166,7 @@ export const Card = ({ card, index, layout = false }) => {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open, handleClose]); // Add handleClose to the dependency array
-
+  }, [open, handleClose]); // 'handleClose' now has a stable reference
 
   useOutsideClick(containerRef, () => handleClose());
 
@@ -168,10 +174,6 @@ export const Card = ({ card, index, layout = false }) => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-    onCardClose(index);
-  };
 
   return (
     <>
