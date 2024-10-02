@@ -38,7 +38,7 @@ export default function About() {
           <InfiniteMovingCards
             items={about_me}
             direction="right"
-            speed="slow"
+            speed="normal"
           />
         </section>
 
